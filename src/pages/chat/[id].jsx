@@ -17,7 +17,7 @@ const Topbar = ({ email}) => {
             p={5}
             h={'81px'}
             w={'100%'}>
-            <Avatar src="" marginEnd={3} />
+            <Avatar src={user.Avatar} marginEnd={3} />
             <Heading size={'lg'}>{email}</Heading>
         </Flex>
     )

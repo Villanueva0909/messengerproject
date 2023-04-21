@@ -8,6 +8,7 @@ import { collection, addDoc } from "firebase/firestore"
 import { db } from "@/firebase/firebaseconfig";
 import getOtherEmail from "../Utils/getOtherEmail"
 import { useRouter } from "next/router";
+useAuthState
 
 export const Sidebar = () => {
     const [user] = useAuthState(auth);

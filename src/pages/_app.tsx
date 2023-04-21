@@ -2,21 +2,23 @@ import { Center, ChakraProvider, Spinner } from '@chakra-ui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase/firebaseconfig'
 import { Login } from './Login';
+import { PropsWithChildren } from 'react';
 
-export default function App({ Component, pageProps }) {
+
+export default function App({ Component, ...pageProps }) {
   const [user, loading, error] = useAuthState(auth);
 
   if (loading) {
     return (
       <ChakraProvider>
         <Center h={'100vh'}>
-          <Spinner size={'xl'}/>
+          <Spinner size={'xl'} />
         </Center>
       </ChakraProvider>
     )
   }
 
-  if(!user) {
+  if (!user) {
     return (
       <ChakraProvider>
         <Login />
@@ -25,8 +27,8 @@ export default function App({ Component, pageProps }) {
   }
 
   return (
-      <ChakraProvider>
-        <Component {...pageProps} />
-      </ChakraProvider>
+    <ChakraProvider>
+      <Component {...pageProps} />
+    </ChakraProvider>
   )
 }
